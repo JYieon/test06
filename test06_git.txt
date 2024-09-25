@@ -1,0 +1,466 @@
+
+user@DESKTOP-7EQF3M8 MINGW64 /
+$ cd /e/Choi
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi
+$ cd git_test/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test
+$ ls
+branch-quiz/    my_repos01/  office_test/  reset-test/
+branch_test01/  my_repos02/  quiz01/       revert-test/
+home_test/      my_repos03/  quiz02/       test3/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test
+$ mkdir masterdir
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test
+$ mkdir testdir
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test
+$ cd masterdir
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir
+$ git init
+Initialized empty Git repository in E:/Choi/git_test/masterdir/.git/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git remote add origin https://github.com/JYieon/test06.git
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ cat > project.txt
+기본 프로젝트
+
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git add .
+warning: in the working copy of 'project.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git commit -m "기본 프로젝트"
+[master (root-commit) 980eb4a] 기본 프로젝트
+ 1 file changed, 1 insertion(+)
+ create mode 100644 project.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 260 bytes | 260.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/JYieon/test06.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git branch a-branch
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git branch b-branch
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git switch a-branch
+Switched to branch 'a-branch'
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ ls
+project.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ mkdir write
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ cd wri
+bash: cd: wri: No such file or directory
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ cd write/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/write (a-branch)
+$ cat > write.txt
+글쓰기기능 구현
+
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/write (a-branch)
+$ cat > del.txt
+글삭제기능 구현
+
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/write (a-branch)
+$ git add .
+warning: in the working copy of 'write/del.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'write/write.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/write (a-branch)
+$ git commit -m "글쓰기,삭제 기능"
+[a-branch b51df78] 글쓰기,삭제 기능
+ 2 files changed, 2 insertions(+)
+ create mode 100644 write/del.txt
+ create mode 100644 write/write.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/write (a-branch)
+$ git switch b-branch
+Switched to branch 'b-branch'
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/write (b-branch)
+$ cd ..
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (b-branch)
+$ git switch a-branch
+Switched to branch 'a-branch'
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git log
+commit b51df782541fca8bbc9e66bc9101cf25936e10da (HEAD -> a-branch)
+Author: ChoiJiyeon <dkcl.8642@gmail.com>
+Date:   Wed Sep 25 10:52:14 2024 +0900
+
+    글쓰기,삭제 기능
+
+commit 980eb4a0eb8253ad1e60a8e01b500b7f4e3df9a3 (origin/master, master, b-branch)
+Author: ChoiJiyeon <dkcl.8642@gmail.com>
+Date:   Wed Sep 25 10:48:58 2024 +0900
+
+    기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git log --oneline
+b51df78 (HEAD -> a-branch) 글쓰기,삭제 기능
+980eb4a (origin/master, master, b-branch) 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git reset --soft 980eb4a
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ ls
+project.txt  write/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ ls write
+del.txt  write.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git status
+On branch a-branch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   write/del.txt
+        new file:   write/write.txt
+
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git add .
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git log --oneline
+980eb4a (HEAD -> a-branch, origin/master, master, b-branch) 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git commit -m "글쓰기,삭제 기능"
+[a-branch 82dc731] 글쓰기,삭제 기능
+ 2 files changed, 2 insertions(+)
+ create mode 100644 write/del.txt
+ create mode 100644 write/write.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git log --oneline
+82dc731 (HEAD -> a-branch) 글쓰기,삭제 기능
+980eb4a (origin/master, master, b-branch) 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (a-branch)
+$ git switch b-branch
+Switched to branch 'b-branch'
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (b-branch)
+$ mkdir reply
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (b-branch)
+$ cd reply/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/reply (b-branch)
+$ cat > reply.txt
+답글쓰기 기능
+
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/reply (b-branch)
+$ cat > del.txt
+답글삭제 기능
+
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir/reply (b-branch)
+$ cd ..
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (b-branch)
+$ git add .
+warning: in the working copy of 'reply/del.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'reply/reply.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (b-branch)
+$ git commit -m "답글쓰기, 삭제 기능"
+[b-branch 7575305] 답글쓰기, 삭제 기능
+ 2 files changed, 2 insertions(+)
+ create mode 100644 reply/del.txt
+ create mode 100644 reply/reply.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (b-branch)
+$ git log --oneline
+7575305 (HEAD -> b-branch) 답글쓰기, 삭제 기능
+980eb4a (origin/master, master) 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (b-branch)
+$ git switch master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git merge a-branch
+Updating 980eb4a..82dc731
+Fast-forward
+ write/del.txt   | 1 +
+ write/write.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 write/del.txt
+ create mode 100644 write/write.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git merge b-branch
+Merge made by the 'ort' strategy.
+ reply/del.txt   | 1 +
+ reply/reply.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 reply/del.txt
+ create mode 100644 reply/reply.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ ls
+project.txt  reply/  write/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git log --oneline
+969fe65 (HEAD -> master) Merge branch 'b-branch'
+7575305 (b-branch) 답글쓰기, 삭제 기능
+82dc731 (a-branch) 글쓰기,삭제 기능
+980eb4a (origin/master) 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git push
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (12/12), 1000 bytes | 1000.00 KiB/s, done.
+Total 12 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/JYieon/test06.git
+   980eb4a..969fe65  master -> master
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git log --oneline
+969fe65 (HEAD -> master, origin/master) Merge branch 'b-branch'
+7575305 (b-branch) 답글쓰기, 삭제 기능
+82dc731 (a-branch) 글쓰기,삭제 기능
+980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ cd ..
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test
+$ cd testdir/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir
+$ cd clone https://github.com/JYieon/test06.git
+bash: cd: too many arguments
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir
+$ clone https://github.com/JYieon/test06.git
+bash: clone: command not found
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir
+$ git clone https://github.com/JYieon/test06.git
+Cloning into 'test06'...
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 15 (delta 2), reused 15 (delta 2), pack-reused 0 (from 0)
+Receiving objects: 100% (15/15), done.
+Resolving deltas: 100% (2/2), done.
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir
+$ git log --oneline
+fatal: not a git repository (or any of the parent directories): .git
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir
+$ ls
+test06/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir
+$ cd test06/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ git log --oneline
+969fe65 (HEAD -> master, origin/master, origin/HEAD) Merge branch 'b-branch'
+7575305 답글쓰기, 삭제 기능
+82dc731 글쓰기,삭제 기능
+980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ ls
+project.txt  reply/  write/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ vi project.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ git add .
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ git commit -m "공통기능 추가"
+[master da7a045] 공통기능 추가
+ 1 file changed, 1 insertion(+)
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ cd ..
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir
+$ cd ..
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test
+$ cd masterdir/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git log --oneline
+969fe65 (HEAD -> master, origin/master) Merge branch 'b-branch'
+7575305 (b-branch) 답글쓰기, 삭제 기능
+82dc731 (a-branch) 글쓰기,삭제 기능
+980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ cd ..
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test
+$ cd testdir/test06
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ git log --oneline
+da7a045 (HEAD -> master) 공통기능 추가
+969fe65 (origin/master, origin/HEAD) Merge branch 'b-branch'
+7575305 답글쓰기, 삭제 기능
+82dc731 글쓰기,삭제 기능
+980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 372 bytes | 372.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/JYieon/test06.git
+   969fe65..da7a045  master -> master
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ git log --oneline
+da7a045 (HEAD -> master, origin/master, origin/HEAD) 공통기능 추가
+969fe65 Merge branch 'b-branch'
+7575305 답글쓰기, 삭제 기능
+82dc731 글쓰기,삭제 기능
+980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ cd ../../masterdir/
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git log --oneline
+969fe65 (HEAD -> master, origin/master) Merge branch 'b-branch'
+7575305 (b-branch) 답글쓰기, 삭제 기능
+82dc731 (a-branch) 글쓰기,삭제 기능
+980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git reset --hard ^C
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git reset --hard 980eb4a
+HEAD is now at 980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git log --oneline
+980eb4a (HEAD -> master) 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git push -f
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 260 bytes | 260.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/JYieon/test06.git
+ + da7a045...980eb4a master -> master (forced update)
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ cd ../testdir/test06
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ git log --oneline
+da7a045 (HEAD -> master, origin/master, origin/HEAD) 공통기능 추가
+969fe65 Merge branch 'b-branch'
+7575305 답글쓰기, 삭제 기능
+82dc731 글쓰기,삭제 기능
+980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ git push
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (15/15), 1.31 KiB | 1.31 MiB/s, done.
+Total 15 (delta 2), reused 12 (delta 2), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/JYieon/test06.git
+   980eb4a..da7a045  master -> master
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/testdir/test06 (master)
+$ cd ../../masterdir
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git pull
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 5 (delta 0), reused 5 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 656 bytes | 10.00 KiB/s, done.
+From https://github.com/JYieon/test06
+   980eb4a..da7a045  master     -> origin/master
+Updating 980eb4a..da7a045
+Fast-forward
+ project.txt     | 1 +
+ reply/del.txt   | 1 +
+ reply/reply.txt | 1 +
+ write/del.txt   | 1 +
+ write/write.txt | 1 +
+ 5 files changed, 5 insertions(+)
+ create mode 100644 reply/del.txt
+ create mode 100644 reply/reply.txt
+ create mode 100644 write/del.txt
+ create mode 100644 write/write.txt
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git log --oneline
+da7a045 (HEAD -> master, origin/master) 공통기능 추가
+969fe65 Merge branch 'b-branch'
+7575305 (b-branch) 답글쓰기, 삭제 기능
+82dc731 (a-branch) 글쓰기,삭제 기능
+980eb4a 기본 프로젝트
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git branch -d a-branch
+Deleted branch a-branch (was 82dc731).
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git branch -d b-branch
+Deleted branch b-branch (was 7575305).
+
+user@DESKTOP-7EQF3M8 MINGW64 /e/Choi/git_test/masterdir (master)
+$ git branch
+* master
